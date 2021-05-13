@@ -1,0 +1,20 @@
+{
+    "name": "ipad90/sinegy-php",
+    "description": "PHP library for connecting to the Sinegy API.",
+    "version": 0.1,
+    "homepage": "https://github.com/Ipad90/sinegy-php",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "James Ong Rui Ming",
+            "email": "jamesong054@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ipad90\\Sinegy\\": "src/"
+        }
+    }
+}
