@@ -1,6 +1,5 @@
 {
     "name": "ipad90/sinegy-php",
-    "version": "0.0.3",
     "description": "PHP library for connecting to the Sinegy API.",
     "homepage": "https://github.com/Ipad90/sinegy-php",
     "license": "MIT",
