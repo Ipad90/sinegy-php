@@ -150,56 +150,6 @@ class Marketplace extends Base
         return $this->curlAPI("GET", $url, []);
     }
 
-    public function getOrderStatus($pair)
-    {
-        $url = "{$this->version}/genenral/order/status";
-        $path = [
-            "currencyPair" => $pair
-        ];
-        $url += "?" . http_build_query($path);
-        return $this->curlAPI("GET", $url, []);
-    }
-
-    public function getOrderTypes($pair)
-    {
-        $url = "{$this->version}/genenral/order/types";
-        $path = [
-            "currencyPair" => $pair
-        ];
-        $url += "?" . http_build_query($path);
-        return $this->curlAPI("GET", $url, []);
-    }
-
-    public function getOrderTimeInforce($pair)
-    {
-        $url = "{$this->version}/genenral/order/time-inforce";
-        $path = [
-            "currencyPair" => $pair
-        ];
-        $url += "?" . http_build_query($path);
-        return $this->curlAPI("GET", $url, []);
-    }
-
-    public function getOrderSides($pair)
-    {
-        $url = "{$this->version}/genenral/order/sides";
-        $path = [
-            "currencyPair" => $pair
-        ];
-        $url += "?" . http_build_query($path);
-        return $this->curlAPI("GET", $url, []);
-    }  
-
-    public function getOrderFlags($pair)
-    {
-        $url = "{$this->version}/genenral/order/flags";
-        $path = [
-            "currencyPair" => $pair
-        ];
-        $url += "?" . http_build_query($path);
-        return $this->curlAPI("GET", $url, []);
-    }
-
     public function getSpecificOrder($pair, $transaction_no)
     {
         $url = "{$this->version}/account/order/check";
@@ -272,16 +222,15 @@ class Marketplace extends Base
         return $this->curlAPI("GET", $url, []);
     }
     
-    public function placeTestOrder($pair, $price, $volume, $side, $order_type, $time_inforce, $recv_window = 5000)
+    public function placeTestOrder($pair, $price, $volume, $side, $order_type, $recv_window = 5000)
     {
         $url = "{$this->version}/account/orders/test";
         $parameters = [
             "currencyPair" => $pair,
             "unitPrice" => $price,
             "volume" => $volume,
-            "orderSideId" => $side,
-            "orderTypeId" => $order_type,
-            "timeInForce" => $time_inforce,
+            "orderSide" => $side,
+            "orderType" => $order_type,
             "recvWindow" => $recv_window,
             "timestamp" => $this->timestamp()
         ];
@@ -289,16 +238,15 @@ class Marketplace extends Base
         return $this->curlAPI("POST", $url, $parameters);
     }
 
-    public function placeOrder($pair, $price, $volume, $side, $order_type, $time_inforce, $recv_window = 5000)
+    public function placeOrder($pair, $price, $volume, $side, $order_type, $recv_window = 5000)
     {
         $url = "{$this->version}/account/orders/place";
         $parameters = [
             "currencyPair" => $pair,
             "unitPrice" => $price,
             "volume" => $volume,
-            "orderSideId" => $side,
-            "orderTypeId" => $order_type,
-            "timeInForce" => $time_inforce,
+            "orderSide" => $side,
+            "orderType" => $order_type,
             "recvWindow" => $recv_window,
             "timestamp" => $this->timestamp()
         ];
